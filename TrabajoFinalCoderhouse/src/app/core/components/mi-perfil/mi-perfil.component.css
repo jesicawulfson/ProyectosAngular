@@ -1,0 +1,10 @@
+.example-card {
+    max-width: 400px;
+    background-color: rgb(233, 232, 232);
+}
+:host /deep/ .mat-card-header-text {
+    margin: 0;
+}
+.mat-card-header .mat-card-title {
+    color:#673ab7
+}

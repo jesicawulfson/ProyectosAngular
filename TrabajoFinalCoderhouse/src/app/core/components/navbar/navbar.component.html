@@ -1,0 +1,24 @@
+<ng-container *ngIf="sesion$ | async as sesion">
+    <div *ngIf="sesion.sesionActiva">
+        <button mat-button class="menu-button" color="primary" routerLink="inicio">
+            <mat-icon>home</mat-icon>
+            <span>Inicio</span>
+        </button>
+        <button mat-button class="menu-button" color="primary"  routerLink="alumnos/lista-alumnos">
+            <mat-icon>person</mat-icon>
+            <span>Alumnos</span>
+        </button>
+        <button mat-button class="menu-button" color="primary" routerLink="cursos/lista-cursos">
+            <mat-icon>book</mat-icon>
+            <span>Cursos</span>
+        </button>
+        <button mat-button class="menu-button" color="primary" routerLink="inscripciones/lista">
+            <mat-icon>dataset</mat-icon>
+            <span>Inscripciones</span>
+        </button>
+        <button mat-button class="menu-button" color="primary" routerLink="usuarios">
+            <mat-icon>build</mat-icon>
+            <span>Usuarios</span>
+        </button>
+    </div>
+</ng-container>

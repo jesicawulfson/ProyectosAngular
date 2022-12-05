@@ -1,0 +1,9 @@
+.banner {
+    background-image: url('../../../../assets/laura-rivera-ArH3dtoDQc0-unsplash.jpg');
+    width: 100%;
+    height: 205px;
+    background-position: center;
+}
+.example-spacer {
+    flex: 1 1 auto;
+  }

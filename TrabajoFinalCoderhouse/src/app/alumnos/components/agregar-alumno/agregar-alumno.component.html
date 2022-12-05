@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container">
+    <div>
+        <h2 appTituloEstilo>Agregar alumno</h2>
+        <div class="col-md-9">
+            <form [formGroup]="formulario" (ngSubmit)="agregarAlumno()">
+                <div class="row">
+                    <mat-label>Dni</mat-label>
+                    <mat-form-field appearance="fill" class="fill">
+                        <input matInput type="number" min="0" max="99999999" id="inputDni" placeholder="Dni (requerido)"
+                            formControlName="dni">
+                        <p *ngIf="formulario.get('dni')?.touched && formulario.get('dni')?.errors?.['required']"
+                            class="error">El campo Dni es requerido</p>
+                        <p *ngIf="formulario.get('dni')?.touched && formulario.get('dni')?.errors?.['pattern']"
+                            class="error">El formato del Dni no es correcto (hasta 8 digitos)</p>
+                    </mat-form-field>
+                </div>
+                <div class="row ">
+                    <mat-label>Nombre</mat-label>
+                    <mat-form-field appearance="fill" class="fill">
+                        <input matInput type="text" id="inputNombre" placeholder="Nombre (requerido)" formControlName="nombre">
+                        <p *ngIf="formulario.get('nombre')?.touched && formulario.get('nombre')?.errors?.['required']"
+                            class="error">El campo nombre es requerido</p>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-label>Apellido</mat-label>
+                    <mat-form-field appearance="fill" class="fill">
+                        <input matInput type="text" id="inputApellido" placeholder="Apellido (requerido)"
+                            formControlName="apellido">
+                        <p *ngIf="formulario.get('apellido')?.touched && formulario.get('apellido')?.errors?.['required']"
+                            class="error">El campo apellido es requerido</p>
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-label>Correo electrónico</mat-label>
+                    <mat-form-field appearance="fill" class="fill">
+                        <input matInput type="text" id="inputEmail" placeholder="Email (requerido)" formControlName="correo">
+                        <p *ngIf="formulario.get('correo')?.touched && formulario.get('correo')?.errors?.['required']"
+                            class="error">El campo correo es requerido</p>
+                        <p *ngIf="formulario.get('correo')?.touched && formulario.get('correo')?.errors?.['pattern']"
+                            class="error">El formato del correo no es correcto</p>
+                    </mat-form-field>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-label>Fecha de nacimiento</mat-label>
+                                <mat-form-field>
+                                    <input matInput [matDatepicker]="picker" formControlName="fechanacimiento">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <mat-label>Género</mat-label>
+                            <mat-form-field appearance="fill" class="fill">
+                                <mat-select id="inputGenero" formControlName="genero">
+                                    <mat-option value="F">F</mat-option>
+                                    <mat-option value="M">M</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-sm-6">
+                        <button type="button" mat-raised-button color="primary" [disabled]="formulario.invalid"
+                            type="submit">Guardar</button>
+                        
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="button" mat-raised-button routerLink="/alumnos/lista-alumnos">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

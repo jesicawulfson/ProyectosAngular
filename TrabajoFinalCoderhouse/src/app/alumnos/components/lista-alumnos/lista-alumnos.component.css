@@ -1,0 +1,47 @@
+.derecha{
+    float:right;
+    margin-top:5px;
+}
+.grid-container{
+    display: grid;
+    grid-template-areas:
+    'header header header header header header'
+    'menu main main main main main';
+}
+.grid-header{
+    grid-area: header;
+}
+.grid-menu{
+    grid-area: menu;
+}
+.grid-content{
+    grid-area: main;
+}
+table.mat-table {
+    display: table;
+}
+tr:nth-child(2n) {
+    background: rgb(233, 232, 232);
+}
+.mat-header-cell {
+   background: grey;
+   color: white;
+   font-size:14px;
+}
+
+
+.mat-header-cell {
+    text-align: center;
+    justify-content:center;
+}
+  
+.mat-cell {
+    text-align: center;
+    justify-content:center;
+}
+th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+    padding-right: 0; 
+}
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+    padding-left: 0; 
+}

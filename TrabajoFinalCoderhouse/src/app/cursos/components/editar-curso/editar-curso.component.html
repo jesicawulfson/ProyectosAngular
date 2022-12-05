@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container">
+    <div>
+        <h2 appTituloEstilo>Editar los datos del curso</h2>
+        <div class="col-md-9">
+            <form [formGroup]="formulario" (ngSubmit)="editarCurso()">
+                <div class="row">
+                    <div class="row" style="height:80px">
+                        <mat-label>Nombre</mat-label>
+                        <mat-form-field appearance="fill" class="fill">
+                            <input matInput type="text"  id="inputNombre" placeholder="Nombre (requerido)"
+                                formControlName="nombre">
+                            <p *ngIf="formulario.get('nombre')?.touched && formulario.get('nombre')?.errors?.['required']"
+                                class="error">El campo nombre es requerido</p>
+                        </mat-form-field>
+                    </div>
+                    <div class="row" style="height:80px">
+                        <mat-label>Comision</mat-label>
+                        <mat-form-field appearance="fill" class="fill">
+                            <input matInput type="text"  id="inputComision" placeholder="Comision (requerido)"
+                                formControlName="comision">
+                            <p *ngIf="formulario.get('comision')?.touched && formulario.get('comision')?.errors?.['required']"
+                                class="error">El campo comision es requerido</p>
+                        </mat-form-field>
+                    </div>
+                    <div class="row" style="height:80px">
+                        <mat-label>Profesor</mat-label>
+                        <mat-form-field appearance="fill" class="fill">
+                            <input matInput type="text" id="inputProfesor" placeholder="Profesor (requerido)"
+                                formControlName="profesor">
+                            <p *ngIf="formulario.get('profesor')?.touched && formulario.get('profesor')?.errors?.['required']"
+                                class="error">El campo profesor es requerido</p>
+                        </mat-form-field>      
+                    </div>
+                </div>
+                <div class="row mt-2" style="height:80px">
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-label>Fecha inicio</mat-label>
+                                <mat-form-field appearance="fill" class="fill">
+                                    <input matInput [matDatepicker]="fechainicio" formControlName="inicio">
+                                    <mat-datepicker-toggle matSuffix [for]="fechainicio"></mat-datepicker-toggle>
+                                    <mat-datepicker #fechainicio></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-label>Fecha fin</mat-label>
+                                <mat-form-field appearance="fill" class="fill">
+                                    <input matInput [matDatepicker]="fechafin" formControlName="fin">
+                                    <mat-datepicker-toggle matSuffix [for]="fechafin"></mat-datepicker-toggle>
+                                    <mat-datepicker #fechafin></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-4">
+                        <mat-slide-toggle formControlName="inscripcionAbierta">Inscripcion abierta</mat-slide-toggle>
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-sm-6">
+                        <button type="button" mat-raised-button color="primary" [disabled]="formulario.invalid"
+                            type="submit">Guardar</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="button" mat-raised-button routerLink="/cursos/lista-cursos">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

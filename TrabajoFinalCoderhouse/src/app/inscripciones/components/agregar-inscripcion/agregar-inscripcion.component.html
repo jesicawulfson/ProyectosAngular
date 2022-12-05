@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container">
+    <div>
+        <h2 appTituloEstilo>Agregar inscripcion</h2>
+        <div class="col-md-9">
+            <form [formGroup]="formulario" (ngSubmit)="agregarInscripcion()">
+                <div class="row">
+                    <mat-label>Curso</mat-label>
+                    <mat-form-field appearance="fill" class="fill">
+                        <mat-select id="inputCursos" formControlName="cursos">
+                            <mat-option *ngFor="let curso of cursos$ | async" [value]="curso">{{curso.nombre}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-label>Alumno</mat-label>
+                    <mat-form-field appearance="fill" class="fill">
+                        <mat-select id="inputAlumnos" formControlName="alumnos">
+                            <mat-option *ngFor="let alumno of alumnos$ | async"  [value]="alumno">{{alumno.nombre}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-sm-6">
+                        <button type="button" mat-raised-button color="primary" [disabled]="formulario.invalid"
+                            type="submit">Guardar</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="button" mat-raised-button routerLink="/inscripciones/lista">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

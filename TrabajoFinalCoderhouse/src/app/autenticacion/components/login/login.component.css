@@ -1,0 +1,13 @@
+html,
+body { height: 100%;
+}
+.parent {
+height: 200px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.child {
+width: 600px;
+height: 100px;
+}

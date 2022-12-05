@@ -1,0 +1,52 @@
+<div>
+    <div class="row mt-4" style="margin-left: 4px;" class="parent">
+        <div class="child">
+            <div class="row mt-4">
+                <div class="col-md-9">
+                    <h1>Registro</h1><br />
+                    <form [formGroup]="formulario" (ngSubmit)="registrar()">
+                        <div class="row">
+                            <mat-label>Usuario</mat-label>
+                            <mat-form-field appearance="fill" class="fill">
+                                <input type="text" matInput id="inputUsuario" placeholder="Usuario (requerido)"
+                                    formControlName="usuario">
+                                <p *ngIf="formulario.get('usuario')?.touched && formulario.get('usuario')?.errors?.['required']"
+                                    class="error">El campo Usuario es requerido</p>
+                            </mat-form-field>
+                        </div>
+                        <div class="row">
+                            <mat-label>Contraseña</mat-label>
+                            <mat-form-field appearance="fill" class="fill">
+                                <input matInput type="password" id="inputContrasena" placeholder="Contraseña (requerido)"
+                                    formControlName="contrasena">
+                                <p *ngIf="formulario.get('contrasena')?.touched && formulario.get('contrasena')?.errors?.['required']"
+                                    class="error">El campo Contraseña es requerido</p>
+                            </mat-form-field>
+                        </div>
+                        <div class="row">
+                            <mat-label>Repetir Contraseña</mat-label>
+                            <mat-form-field appearance="fill" class="fill">
+                                <input matInput type="password" id="inputRepetirContrsaena" placeholder="Repetir Contraseña (requerido)"
+                                    formControlName="repitecontrasena">
+                                <p *ngIf="formulario.get('repitecontrasena')?.touched && formulario.get('repitecontrasena')?.errors?.['required']"
+                                    class="error">El campo Repetir Contraseña es requerido</p>
+                                <p *ngIf="formulario.get('repitecontrasena')?.touched && formulario.get('repitecontrasena')?.errors?.['confirmPasswordValidator']"
+                                    class="error">Las contraseñas ingresadas no coinciden</p>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group row mt-4">
+                            <div class="col-sm-6">
+                                <button type="button" mat-raised-button color="primary" [disabled]="formulario.invalid"
+                                    type="submit">Registrarme</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="button" mat-raised-button (click)="cancelar()" >Cancelar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
